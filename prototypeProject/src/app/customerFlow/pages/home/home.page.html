@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid style="margin:0;padding:0">
+      <ion-row style="margin:0;padding:0;width:100%">
+        <ion-col size="2">
+          <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-col>
+        <ion-col size="3" class="ion-text-center"><ion-title style="height:100%;padding:0px;">Home</ion-title></ion-col>
+        <ion-col size="7"><ion-searchbar [(ngModel)]="search" (ngModelChange)="onSearchChange($event)"></ion-searchbar></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
+
+</ion-header>
+
+
+<ion-content>
+  <ion-segment [(ngModel)]="viewingCategory">
+    <ion-segment-button value="recommended">
+      Recommended
+    </ion-segment-button>
+    <ion-segment-button value="popular">
+      Most Popular
+    </ion-segment-button>
+    <ion-segment-button value="full">
+      Full Menu
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf='viewingCategory=="recommended"' style="animation: fadeIn linear 0.3s;">
+    <div *ngFor="let menuItem of recommendedItems">
+      <app-simple-menu-item *ngIf='filtered(menuItem)' [menuItem]="menuItem" (click)="OrderItemModal(menuItem)"></app-simple-menu-item>
+    </div>
+
+  </div>
+
+  <div *ngIf='viewingCategory=="popular"' style="animation: fadeIn linear 0.3s;">
+    <div *ngFor="let menuItem of popularItems">
+      <app-simple-menu-item *ngIf='filtered(menuItem)' [menuItem]="menuItem" (click)="OrderItemModal(menuItem)"></app-simple-menu-item>
+    </div>
+
+  </div>
+
+  <div *ngIf='viewingCategory=="full"' style="animation: fadeIn linear 0.3s;">
+    <div *ngFor="let menuItem of menuService.getAllItems()">
+      <app-simple-menu-item *ngIf='filtered(menuItem)' [menuItem]="menuItem" (click)="OrderItemModal(menuItem)"></app-simple-menu-item>
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="orderService.getAllItems().length>=1" style="text-align: center;">
+  <ion-button (click)="viewOrder()">
+    View Order
+  </ion-button>
+</ion-footer>

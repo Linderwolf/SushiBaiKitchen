@@ -1,0 +1,129 @@
+<!-- Header -->
+<ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-segment [(ngModel)]="selectedTab">
+          <ion-segment-button value="orders">
+            Orders
+          </ion-segment-button>
+          <ion-segment-button value="inventory">
+            Inventory
+          </ion-segment-button>
+          <ion-segment-button value="menu">
+            Menu
+          </ion-segment-button>
+          <ion-segment-button value="reports">
+            Reports
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+      <ion-col size="6">
+        <!--TODO: Header Logged In & Time -->
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<!--#region MAIN CONTENT -->
+  <ion-content>
+
+  <!--#region ORDERS TAB - PETER -->
+    <div *ngIf='selectedTab=="orders"' style="width:100%;height:100%">
+      <ion-grid style="width:100%;height:100%">
+        <ion-row>
+          <ion-col size="6">
+            <!-- #region Left main column -->
+            <ion-grid>
+              <!-- #region TODO: Incoming Orders -->
+              <ion-row>
+                <ion-col size="3">
+
+                </ion-col>
+                <ion-col size="3">
+
+                </ion-col>
+                <ion-col size="6">
+
+                </ion-col>
+              </ion-row>
+              <!-- #endregion -->
+              <!-- #region TODO: Accepted Orders -->
+              <ion-row>
+                <ion-col size="3">
+
+                </ion-col>
+                <ion-col size="3">
+
+                </ion-col>
+                <ion-col size="6">
+
+                </ion-col>
+              </ion-row>
+              <!-- #endregion -->
+            </ion-grid>
+            <!-- #endregion -->
+          </ion-col>
+          <ion-col size="6">
+            <!-- #region Right main column -->
+            <ion-grid>
+              <!-- #region TODO: Order Summary -->
+              <ion-row>
+
+              </ion-row>
+              <!-- #endregion -->
+
+              <!-- #region TODO: Order Summary - Item List -->
+              <ion-row>
+
+              </ion-row>
+              <!-- #endregion -->
+
+              <!-- #region TODO: Order Summary - Receipt-->
+              <ion-row>
+
+              </ion-row>
+              <!-- #endregion -->
+            </ion-grid>
+            <!-- #endregion -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  <!--#endregion  -->
+
+  <!--#region INVENTORY TAB - ETHAN -->
+    <div *ngIf='selectedTab=="inventory"'>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="8">
+
+          </ion-col>
+          <ion-col size="4">
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  <!--#endregion -->
+
+  <!--#region MENU TAB - AHMED -->
+    <div *ngIf='selectedTab=="menu"'>
+      <ion-title>menu</ion-title>
+    </div>
+  <!--#endregion -->
+
+  <!--#region REPORTS TAB - JUGAL -->
+    <div *ngIf='selectedTab=="reports"'>
+      <!-- Show inventory sales within a time period. -->
+      <!-- Show the most popular/trending items -->
+      <!-- Show number of customers -->
+      <!-- Show inventory used -->
+      <ion-title>reports</ion-title>
+    </div>
+  <!--#endregion -->
+
+<!-- #endregion -->
+</ion-content>

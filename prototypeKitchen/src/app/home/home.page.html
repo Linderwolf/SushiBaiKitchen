@@ -94,20 +94,81 @@
   <!--#endregion  -->
 
   <!--#region INVENTORY TAB - ETHAN -->
-    <div *ngIf='selectedTab=="inventory"'>
+  <!--Currently, I'm going to try to match the example we have on Moqups...dummy data included.-->
+  <!--This is the table in which all of the inventory will be stored.-->
 
-      <ion-grid>
-        <ion-row>
-          <ion-col size="8">
+  <!--Debating on changing this to a list instead of a grid, but for now...-->
 
-          </ion-col>
-          <ion-col size="4">
+  <div *ngIf='selectedTab=="inventory"'>
 
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-  <!--#endregion -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-title>Ingredients</ion-title>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Salmon</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Quantity: 156
+            Last Purchase Date: 09-25-2021
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+
+      <ion-row>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Carrots</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Quantity: 127
+            Last Purchase Date: 09-15-2021
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+        
+      <ion-row>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Rice</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Quantity: 60kg
+            Last Purchase Date: 09-25-2021
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+
+      <ion-row>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Seaweed</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Quantity: 50
+            Last Purchase Date: 10-12-2021
+          </ion-card-content>
+        </ion-card>
+      </ion-row>  
+    </ion-grid>
+
+    <!--Button to change to purchase supplies and view sources of supplies-->
+
+    <ion-button>Purchase / View Sellers</ion-button>
+
+    <!--TODO: Image and title of the inventory item that is currently selected.-->
+
+  </div>
+<!--#endregion -->
 
   <!--#region MENU TAB - AHMED -->
     <div *ngIf='selectedTab=="menu"' style="color: black; width: 100%; height: 100%;">

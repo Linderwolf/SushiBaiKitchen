@@ -21,6 +21,7 @@ export class HomePage implements OnInit {
     this.menuService.getAllItems().forEach(menuItem => {
       this.allItems.push(menuItem);
     });
+    this.menuItem = this.allItems[0];
   }
 
   onSearchChange(event){
@@ -51,7 +52,8 @@ export class HomePage implements OnInit {
 
   updateSelectedItemImage(s)
   {
-    this.menuItem.image = s;
+    let b = new Blob([s], {type: "image/png, image/jpeg"});
+    this.menuItem.image = URL.createObjectURL(b);
   }
 
   updateSelectedItemPrice(n)

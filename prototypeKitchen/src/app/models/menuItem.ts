@@ -2,7 +2,7 @@ export class MenuItem {
   id: number;
   name: string;
   englishName: string;
-  image:string;
+  image: string;
   price: number;
   quantity: number;
   calories: number;

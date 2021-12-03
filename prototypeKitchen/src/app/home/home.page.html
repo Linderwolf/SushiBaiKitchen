@@ -183,11 +183,11 @@
               <ion-col class="cell">Base Price</ion-col>
             </ion-row>            
             <ion-content style="height: 81%; text-align: center;">
-              <div *ngFor="let menuItem of menuService.getAllItems()">
+              <div *ngFor="let menuItem of allItems">
                 <app-simple-menu-item *ngIf='filtered(menuItem)' [menuItem]="menuItem" (click)="changeSelectedItem(menuItem)"></app-simple-menu-item>
               </div>
             </ion-content>
-            <ion-button style="text-align: center; width: 100%; font-weight: bold;" color="success">
+            <ion-button style="text-align: center; width: 100%; font-weight: bold;" color="success" (click)="NewItemCreator()">
               +
             </ion-button>
           </ion-col>

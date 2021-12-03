@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { MenuItem, Promotion } from 'src/app/models/menuItem';
 import { MenuItemsService } from 'src/app/services/menu-items.service';
-
+import { NewItemModalComponent } from '../components/modals/new-item-modal/new-item-modal.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -52,8 +52,7 @@ export class HomePage implements OnInit {
 
   updateSelectedItemImage(s)
   {
-    let b = new Blob([s], {type: "image/png, image/jpeg"});
-    this.menuItem.image = URL.createObjectURL(b);
+    this.menuItem.image = s;
   }
 
   updateSelectedItemPrice(n)
@@ -89,6 +88,20 @@ export class HomePage implements OnInit {
   updateItemPromotionEnabled(p, b)
   {
     p.enabled = b;
+  }
+
+  async NewItemCreator()
+  {
+    const modal = await this.modalController.create
+    ({
+      component: NewItemModalComponent,
+      cssClass: 'NewItemModal',
+      componentProps:
+      {
+        homePage: this
+      }
+    });
+    return await modal.present();
   }
 
   filtered(item: MenuItem): boolean{

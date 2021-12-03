@@ -7,7 +7,7 @@ export class MenuItem {
   quantity: number;
   calories: number;
   type: string;
-  prepTime: number;
+  prepTime: string;
   recipeDescription: string;
   ingredients: Ingredients[]; 
   popularityRanking: number;

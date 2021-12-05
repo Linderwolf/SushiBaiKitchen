@@ -3,6 +3,8 @@ import { ModalController } from '@ionic/angular';
 import { MenuItem, Promotion } from 'src/app/models/menuItem';
 import { MenuItemsService } from 'src/app/services/menu-items.service';
 import { NewItemModalComponent } from '../components/modals/new-item-modal/new-item-modal.component';
+import { NewIngredientModalComponent } from '../components/modals/new-ingredient-modal/new-ingredient-modal.component';
+import { NewPromotionModalComponent } from '../components/modals/new-promotion-modal/new-promotion-modal.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -90,7 +92,17 @@ export class HomePage implements OnInit {
     p.enabled = b;
   }
 
-  async NewItemCreator()
+  removeLastIngredient()
+  {
+    this.menuItem.ingredients.splice(this.menuItem.ingredients.length - 1, 1);
+  }
+
+  removeLastPromotion()
+  {
+    this.menuItem.promotions.splice(this.menuItem.promotions.length - 1, 1);
+  }
+
+  async newItemCreator()
   {
     const modal = await this.modalController.create
     ({
@@ -99,6 +111,34 @@ export class HomePage implements OnInit {
       componentProps:
       {
         homePage: this
+      }
+    });
+    return await modal.present();
+  }
+
+  async newIngredientCreator()
+  {
+    const modal = await this.modalController.create
+    ({
+      component: NewIngredientModalComponent,
+      cssClass: 'NewIngredientModal',
+      componentProps:
+      {
+        item: this.menuItem
+      }
+    });
+    return await modal.present();
+  }
+
+  async newPromotionCreator()
+  {
+    const modal = await this.modalController.create
+    ({
+      component: NewPromotionModalComponent,
+      cssClass: 'NewPromotionModal',
+      componentProps:
+      {
+        item: this.menuItem
       }
     });
     return await modal.present();

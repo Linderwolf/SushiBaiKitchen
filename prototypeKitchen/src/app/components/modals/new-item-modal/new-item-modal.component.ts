@@ -1,7 +1,5 @@
 import { Component, DebugElement, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Console } from 'console';
-import { logWarnings } from 'protractor/built/driverProviders';
 import { HomePage } from 'src/app/home/home.page';
 import { Ingredients, MenuItem } from 'src/app/models/menuItem';
 
@@ -69,7 +67,14 @@ export class NewItemModalComponent implements OnInit {
 
   confirmItem()
   {
-    this.newItem.id = this.homePage.allItems[this.homePage.allItems.length - 1].id + 1;
+    if (this.homePage.allItems != null)
+    {
+      if (this.homePage.allItems.length > 0) 
+      this.newItem.id = this.homePage.allItems[this.homePage.allItems.length - 1].id + 1;
+      else this.newItem.id = 0;
+    }
+    else this.homePage.allItems = new Array();
+    
     this.homePage.allItems.push(this.newItem);
     console.log(this.homePage.allItems.length);
     this.modalCtrl.dismiss();

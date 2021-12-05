@@ -8,10 +8,9 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-
   <ion-grid>
     <ion-col>
-      <ion-title style="text-align: center;">Item Details</ion-title>
+      <ion-title style="text-align: center;">Add New Item</ion-title>
       <ion-row><ion-col style="max-width: 100px;"><p>Japanese:</p></ion-col>
       <ion-input style="border-style: solid; height: 30px; align-self: center;" (ionChange)="updateJapaneseName($event.target.value)"></ion-input></ion-row>
       <ion-row><ion-col style="max-width: 100px;"><p>English:</p>
@@ -40,7 +39,6 @@
       </ion-col>
     </ion-col>
   </ion-grid>
-
   <ion-footer style="text-align: center;">
     <ion-button (click)="confirmItem()">
       Confirm

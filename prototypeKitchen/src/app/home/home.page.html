@@ -187,11 +187,11 @@
                 <app-simple-menu-item *ngIf='filtered(menuItem)' [menuItem]="menuItem" (click)="changeSelectedItem(menuItem)"></app-simple-menu-item>
               </div>
             </ion-content>
-            <ion-button style="text-align: center; width: 100%; font-weight: bold;" color="success" (click)="NewItemCreator()">
+            <ion-button style="text-align: center; width: 100%; font-weight: bold;" color="success" (click)="newItemCreator()">
               +
             </ion-button>
           </ion-col>
-          <ion-col size="3" style="border-style: solid; border-width: 5px 0px 0px 0px; border-color: black; background-color: white;">
+          <ion-col size="3" style="border-style: solid; border-width: 5px 5px 0px 0px; border-color: black; background-color: white;">
             <ion-title style="text-align: center;">Item Details</ion-title>
             <ion-row><ion-col style="max-width: 100px;"><p>Japanese:</p></ion-col>
             <ion-input style="border-style: solid; height: 30px; align-self: center;" [value]="currentSelectedItem().name" (ionChange)="updateSelectedItemName($event.target.value)"></ion-input></ion-row>
@@ -227,7 +227,14 @@
           <ion-col>
             <ion-row style="height: 50%;">
               <ion-col style="border-style: solid; border-width: 0px 5px 0px 0px; border-color: black; background-color: white;">
-                <ion-title style="text-align: center;">Ingredient List</ion-title>
+                <ion-title style="text-align: center;">Ingredient List
+                  <ion-button style="font-weight: bold; height: 20px; margin-top: -10px;" color="success" (click)="newIngredientCreator()">
+                    +
+                  </ion-button>
+                  <ion-button style="font-weight: bold; height: 20px; margin-top: -10px;" color="danger" (click)="removeLastIngredient()">
+                    -
+                  </ion-button>
+                </ion-title>
                 <br/>
                 <ion-row style="text-align: center;">
                   <ion-col class="cell">Ingredient</ion-col>
@@ -265,7 +272,14 @@
             </ion-row>
             <ion-row style="height: 50%;">
               <ion-col style="border-style: solid; border-width: 5px 0px 0px 0px; background-color: white;">
-                <ion-title style="text-align: center;">Applicable Promotions</ion-title>
+                <ion-title style="text-align: center;">Applicable Promotions
+                  <ion-button style="font-weight: bold; height: 20px; margin-top: -10px;" color="success" (click)="newPromotionCreator()">
+                    +
+                  </ion-button>
+                  <ion-button style="font-weight: bold; height: 20px; margin-top: -10px;" color="danger" (click)="removeLastPromotion()">
+                    -
+                  </ion-button>
+                </ion-title>
                 <ion-row style="font-size: small; text-align: center;">               
                   <ion-col style="border-style: solid; border-width: 1px;">Enabled</ion-col>
                   <ion-col style="border-style: solid; border-width: 1px;">Description</ion-col>

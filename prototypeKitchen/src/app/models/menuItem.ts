@@ -2,12 +2,12 @@ export class MenuItem {
   id: number;
   name: string;
   englishName: string;
-  image:string;
+  image: string;
   price: number;
   quantity: number;
   calories: number;
   type: string;
-  prepTime: number;
+  prepTime: string;
   recipeDescription: string;
   ingredients: Ingredients[]; 
   popularityRanking: number;

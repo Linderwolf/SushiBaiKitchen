@@ -15,9 +15,13 @@ import { NewPromotionModalComponent } from '../components/modals/new-promotion-m
 export class HomePage implements OnInit {
   public allItems: MenuItem[] = new Array();
 
+  public allOrders: Order[] = new Array();
+
   public search: string = "";
 
   public menuItem: MenuItem;
+
+  public order: Order;
 
   constructor(public orderService: OrdersService, public menuService: MenuItemsService, public modalController: ModalController) { }
 
@@ -27,10 +31,9 @@ export class HomePage implements OnInit {
     });
     this.menuItem = this.allItems[0];
 
-    // this.orderService.getAllOrders().forEach(order => {
-    //   this.allOrders.push(order);
-      
-    // });
+    this.orderService.getAllOrders().forEach(order => {
+      this.allOrders.push(order);
+    });
   }
 
   onSearchChange(event){

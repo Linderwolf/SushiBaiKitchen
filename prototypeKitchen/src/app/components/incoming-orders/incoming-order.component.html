@@ -1,9 +1,9 @@
 <ion-card style="background-color: white;" href="#" onclick="return false;">
   <ion-card-content>
     <ion-row>
-      <ion-col style="border-style: solid; border-width: 0px 1px 0px 0px">{{order.user[0].firstName} {user.lastName}}</ion-col>
+      <ion-col style="border-style: solid; border-width: 0px 1px 0px 0px">{{order.user.firstName}}</ion-col>
       <ion-col style="border-style: solid; border-width: 0px 1px 0px 0px">{{order.orderDate}}</ion-col>
-      <ion-col>{{user.orderItems.orderQuantity}}</ion-col>
+      <ion-col>{{order.orderItems.orderQuantity}}</ion-col>
     </ion-row>
   </ion-card-content> 
   <ion-ripple-effect></ion-ripple-effect> 

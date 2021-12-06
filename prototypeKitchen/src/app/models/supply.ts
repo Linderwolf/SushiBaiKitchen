@@ -6,7 +6,7 @@ export class MenuItem {
   price: number;
   quantity: number;
   calories: number;
-  status: string;
+  type: string;
   prepTime: string;
   recipeDescription: string;
   ingredients: Ingredients[]; 

@@ -61,7 +61,10 @@ export class HomePage implements OnInit {
 
   updateSelectedItemImage(s)
   {
-    this.menuItem.image = s;
+    var i = s.lastIndexOf("\\");
+    if (i >= 0) s = s.substring(i, s.length);
+    console.log(s);
+    this.menuItem.image = "assets/images/" + s;  
   }
 
   updateSelectedItemPrice(n)
@@ -79,9 +82,9 @@ export class HomePage implements OnInit {
     this.menuItem.quantity = n;
   }
 
-  updateSelectedItemType(s)
+  updateSelectedItemStatus(s)
   {
-    this.menuItem.type = s;
+    this.menuItem.status = s;
   }
 
   updateSelectedItemPrepTime(n)

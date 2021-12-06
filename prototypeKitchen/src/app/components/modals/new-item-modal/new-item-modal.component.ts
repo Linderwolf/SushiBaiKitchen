@@ -32,7 +32,10 @@ export class NewItemModalComponent implements OnInit {
 
   updateImage(s)
   {
-    this.newItem.image = s;
+    var i = s.lastIndexOf("\\");
+    if (i >= 0) s = s.substring(i, s.length);
+    console.log(s);
+    this.newItem.image = "assets/images/" + s;
   }
 
   updatePrice(n)
@@ -50,9 +53,9 @@ export class NewItemModalComponent implements OnInit {
     this.newItem.quantity = n;
   }
 
-  updateType(s)
+  updateStatus(s)
   {
-    this.newItem.type = s;
+    this.newItem.status = s;
   }
 
   updatePrepTime(s)

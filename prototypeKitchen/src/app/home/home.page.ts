@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Order, OrderItems, Recipe, User } from 'src/app/models/order';
+import { OrdersService } from 'src/app/services/orders.service';
 import { MenuItem, Promotion } from 'src/app/models/menuItem';
 import { MenuItemsService } from 'src/app/services/menu-items.service';
 import { NewItemModalComponent } from '../components/modals/new-item-modal/new-item-modal.component';
@@ -17,13 +19,18 @@ export class HomePage implements OnInit {
 
   public menuItem: MenuItem;
 
-  constructor(public menuService: MenuItemsService, public modalController: ModalController) { }
+  constructor(public orderService: OrdersService, public menuService: MenuItemsService, public modalController: ModalController) { }
 
   ngOnInit() {
     this.menuService.getAllItems().forEach(menuItem => {
       this.allItems.push(menuItem);
     });
     this.menuItem = this.allItems[0];
+
+    // this.orderService.getAllOrders().forEach(order => {
+    //   this.allOrders.push(order);
+      
+    // });
   }
 
   onSearchChange(event){

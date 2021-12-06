@@ -1,6 +1,6 @@
 export class Order {
   orderID: number;
-  user: User[];
+  user: User;
   orderItems: OrderItems[];
   orderDate: string;
   orderNotes: string;
@@ -33,8 +33,6 @@ export class Recipe{
 }
 
 export class OrderItems{
-  //orderItemID: number;
-  //orderID: number;
-  recipeID: Recipe[];
+  recipe: Recipe;
   orderQuantity: number;
 }

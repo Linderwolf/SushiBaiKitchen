@@ -13,7 +13,8 @@ import { ViewOrderModalComponent } from '../../components/modals/view-order-moda
 })
 export class HomePage implements OnInit {
 
-  public viewingCategory = "recommended"
+  public viewingCategory = "about";
+  public img = "assets/images/sushibaiapparently.jpg";
 
   public recommendedItems: MenuItem[] = new Array();
   public popularItems: MenuItem[] = new Array();

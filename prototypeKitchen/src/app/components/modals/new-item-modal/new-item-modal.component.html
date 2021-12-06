@@ -26,10 +26,11 @@
       <ion-input style="border-style: solid; height: 30px; align-self: center;" (ionChange)="updateCalories($event.target.value)"></ion-input></ion-row>
       <ion-row><ion-col style="max-width: 100px;"><p>Quantity:</p></ion-col>
       <ion-input style="border-style: solid; height: 30px; align-self: center;" (ionChange)="updateQuantity($event.target.value)"></ion-input></ion-row>
-      <ion-row><ion-col style="max-width: 100px;"><p>Type:</p>
-      </ion-col><ion-select placeholder="Select Type" style="border-style: solid; height: 30px; align-self: center;" (ionChange)="updateType($event.target.value)">
-        <ion-select-option value="Side Dish">Side Dish</ion-select-option>
-        <ion-select-option value="Other">Other</ion-select-option>
+      <ion-row><ion-col style="max-width: 100px;"><p>Status:</p>
+      </ion-col><ion-select style="border-style: solid; height: 30px; align-self: center;" value="Invisible" (ionChange)="updateStatus($event.target.value)">
+        <ion-select-option value="Purchasable">Purchasable</ion-select-option>
+        <ion-select-option value="Unpurchasable">Unpurchasable</ion-select-option>
+        <ion-select-option value="Invisible">Invisible</ion-select-option>
       </ion-select></ion-row>
       <ion-row><ion-col style="max-width: 100px;"><p>Prep Time:</p></ion-col>
       <ion-input style="border-style: solid; height: 30px; align-self: center;" (ionChange)="updatePrepTime($event.target.value)"></ion-input></ion-row>

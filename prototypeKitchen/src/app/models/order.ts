@@ -35,6 +35,6 @@ export class Recipe{
 export class OrderItems{
   //orderItemID: number;
   //orderID: number;
-  recipeID: Recipe[];
+  recipes: Recipe[];
   orderQuantity: number;
 }

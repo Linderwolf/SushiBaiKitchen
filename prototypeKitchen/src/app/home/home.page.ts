@@ -36,6 +36,7 @@ export class HomePage implements OnInit {
       this.allOrders.push(order);
     });
   }
+  //#region menuItems
 
   onSearchChange(event){
     console.log(event);
@@ -168,5 +169,18 @@ export class HomePage implements OnInit {
       return false;
     }
   }
+  //#endregion
+  //#region Orders
+
+  changeSelectedOrder(order)
+  {
+    this.order = order;
+  }
+  currentSelectedOrder()
+  {
+    if (this.order == null) return this.orderService.getAllOrders()[0];
+    return this.order;
+  }
+  //#endregion
 }
 

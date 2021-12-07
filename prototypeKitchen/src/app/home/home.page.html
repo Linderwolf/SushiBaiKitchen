@@ -43,30 +43,18 @@
             </ion-row>
             <ion-content style="height: 81%; text-align: center;">
               <div *ngFor="let order of allOrders">
-                <app-incoming-order [order]="order"></app-incoming-order>
+                <app-incoming-order [order]="order" (click)="changeSelectedOrder(order)"></app-incoming-order>
               </div>
             </ion-content>
             <!-- #endregion -->
-            <!-- #endregion -->
           </ion-col>
-          <ion-col size="6" style="height: 30%;border-style: solid; border-width: 5px 5px 0px 0px; border-color: black; background-color: grey;">
+          <ion-col size="6" style="height: 100%;border-style: solid; border-width: 5px 5px 0px 0px; border-color: black; background-color: grey;">
             <ion-title style="width: 50%;text-align: center;">Order Summary</ion-title>
-            <ion-row><ion-col style="max-width: 100px;"><p>Customer Name:</p></ion-col>
-              <p>Grace Hopper</p>
+            <ion-row>
+              <p>Customer Name:</p><ion-input [value]="currentSelectedOrder().user.firstName" disabled="true"></ion-input><ion-input [value]="currentSelectedOrder().user.lastName" disabled="true"></ion-input>
+              <p>Phone Number:</p> <ion-input [value]="currentSelectedOrder().user.phone" disabled="true"></ion-input>
+              <p>Email Address:</p><ion-input [value]="currentSelectedOrder().user.email" disabled="true"></ion-input>
             </ion-row>
-            <ion-row><ion-col style="max-width: 100px;"><p>Phone Number:</p></ion-col>
-              <p>4162663669</p>
-            </ion-row>
-            <ion-row><ion-col style="max-width: 100px;"><p>Email Address:</p></ion-col>
-              <p>G.Hops@gmail.com</p>
-            </ion-row>
-            <!-- #endregion -->
-            <!-- #region TODO: Accepted Orders -->
-
-            <!-- #endregion -->
-          </ion-col>
-          <ion-col></ion-col>
-          <ion-col size="6" style="height: 30%; border-style: solid; border-width: 5px 5px 0px 0px; border-color: black; background-color: grey;">
             <ion-row style="height: 30%; text-align: center;">
               <ion-col class="cell">Image</ion-col>
               <ion-col class="cell">Order Items</ion-col>
@@ -76,6 +64,9 @@
               <ion-col class="cell">Total</ion-col>
               <ion-col class="cell">Status</ion-col>
             </ion-row>
+            
+            <!-- #endregion -->
+
             <!-- <ion-content style="height: 81%; background-color: antiquewhite; text-align: center;">
               <div *ngFor="let order of ordersService.getAllOrders()">
                 <app-incoming-order [order]="order"></app-incoming-order>

@@ -34,7 +34,6 @@ export class NewItemModalComponent implements OnInit {
   {
     var i = s.lastIndexOf("\\");
     if (i >= 0) s = s.substring(i, s.length);
-    console.log(s);
     this.newItem.image = "assets/images/" + s;
   }
 
@@ -77,9 +76,9 @@ export class NewItemModalComponent implements OnInit {
       else this.newItem.id = 0;
     }
     else this.homePage.allItems = new Array();
-    
+    if (this.newItem.status == null) this.newItem.status = "Invisible";
+    console.log(this.newItem.status);
     this.homePage.allItems.push(this.newItem);
-    console.log(this.homePage.allItems.length);
     this.modalCtrl.dismiss();
   }
 

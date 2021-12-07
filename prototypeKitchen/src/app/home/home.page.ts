@@ -35,6 +35,7 @@ export class HomePage implements OnInit {
     this.orderService.getAllOrders().forEach(order => {
       this.allOrders.push(order);
     });
+    
   }
 
   onSearchChange(event){

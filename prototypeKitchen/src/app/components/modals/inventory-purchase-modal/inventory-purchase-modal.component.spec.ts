@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { NewIngredientModalComponent } from './new-ingredient-modal.component';
+import { NewIngredientModalComponent } from '../new-ingredient-modal/new-ingredient-modal.component';
 
 describe('NewIngredientModalComponent', () => {
   let component: NewIngredientModalComponent;

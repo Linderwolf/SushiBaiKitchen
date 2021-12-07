@@ -43,7 +43,7 @@
             </ion-row>
             <ion-content style="height: 81%; text-align: center;">
               <div *ngFor="let order of ordersService.getAllOrders()">
-                <app-incoming-order *ngIf='filtered(order)' [order]="order"></app-incoming-order>
+                <app-order-item *ngIf='filtered(order)' [order]="order"></app-order-item>
               </div>
             </ion-content>
             <!-- #endregion -->

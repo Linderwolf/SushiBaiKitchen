@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'confirmed-order',
     loadChildren: () => import('./customerFlow/pages/confirmed-order/confirmed-order.module').then( m => m.ConfirmedOrderPageModule)
   },
+  {
+    path: 'receipt',
+    loadChildren: () => import('./customerFlow/pages/receipt/receipt.module').then( m => m.ReceiptPageModule)
+  },
 ];
 
 @NgModule({

@@ -20,6 +20,7 @@ import { IncomingOrderComponent } from './incoming-orders/incoming-order.compone
         FormsModule],
     exports: [
       SimpleMenuItemComponent,
+      IncomingOrderComponent,
       CardOutputComponent
     ],
     entryComponents: [],

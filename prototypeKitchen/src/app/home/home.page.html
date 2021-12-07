@@ -75,24 +75,16 @@
               <ion-card style="height: 12%; text-align: center; background-color: whitesmoke; align-self:flex-end;">
                 <ion-card-content>
                   <ion-row>
-                    <ion-col class="cell"></ion-col>
-                    <ion-col class="cell"></ion-col>
-                    <ion-col class="cell"></ion-col>
-                    <ion-col class="cell"></ion-col>
-                    <ion-col class="cell">Subtotal: ${{2 | number:'1.2-2'}}</ion-col>
+                    <ion-col class="cell">Additional Notes: {{currentSelectedOrder().orderNotes}}</ion-col>
+                    <ion-col></ion-col>
+                    <ion-col>
+                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="danger" (click)="newItemCreator()">Reject</ion-button>
+                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="success" (click)="newItemCreator()">Complete</ion-button>
+                    </ion-col>
+                    <ion-col></ion-col>
+                    <ion-col class="cell">Subtotal: ${{2 | number:'1.2-2'}}</ion-col> <!-- TO DO!!!! -->
                   </ion-row>
                 </ion-card-content>
-                  <ion-row style="width: 30%;">
-                    <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="danger" (click)="newItemCreator()">Reject</ion-button>
-                    <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="success" (click)="newItemCreator()">Complete</ion-button>
-                  </ion-row>
-                  <ion-row style="width: 30%;">
-                    <ion-col></ion-col>
-                    <ion-col></ion-col>
-                    <ion-col></ion-col>
-                    <!--<ion-col>${{o.recipe.recipePrice | number:'1.2-2'}}</ion-col>-->
-                    <ion-col></ion-col>
-                  </ion-row>
               </ion-card>
           </ion-col>
         </ion-row>

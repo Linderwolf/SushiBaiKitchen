@@ -181,6 +181,10 @@ export class HomePage implements OnInit {
     if (this.order == null) return this.orderService.getAllOrders()[0];
     return this.order;
   }
+  // sumSubTotal(order)
+  // {
+  //   return (this.currentSelectedOrder().orderQuantity * this.currentSelectedOrder().recipe.recipePriceprice);
+  // }
   //#endregion
 }
 

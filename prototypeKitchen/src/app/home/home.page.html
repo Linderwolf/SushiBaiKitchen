@@ -180,7 +180,7 @@
 
     <!--Button to change to purchase supplies and view sources of supplies-->
 
-    <ion-button>Purchase / View Sellers</ion-button>
+    <!--ion-button>Purchase / View Sellers</ion-button-->
 
     <!--TODO: Image and title of the inventory item that is currently selected.-->
 
@@ -229,11 +229,10 @@
             <ion-input style="border-style: solid; height: 30px; align-self: center;" [value]="currentSelectedItem().calories" (ionChange)="updateSelectedItemCalories($event.target.value)"></ion-input></ion-row>
             <ion-row><ion-col style="max-width: 100px;"><p>Quantity:</p></ion-col>
             <ion-input style="border-style: solid; height: 30px; align-self: center;" [value]="currentSelectedItem().quantity" (ionChange)="updateSelectedItemQuantity($event.target.value)"></ion-input></ion-row>
-            <ion-row><ion-col style="max-width: 100px;"><p>Status:</p>
-            </ion-col><ion-select style="border-style: solid; height: 30px; align-self: center;" [value]="currentSelectedItem().status" (ionChange)="updateSelectedItemStatus($event.target.value)">
-              <ion-select-option value="Purchasable">Purchasable</ion-select-option>
-              <ion-select-option value="Unpurchasable">Unpurchasable</ion-select-option>
-              <ion-select-option value="Invisible">Invisible</ion-select-option>
+            <ion-row><ion-col style="max-width: 100px;"><p>Type:</p>
+            </ion-col><ion-select placeholder="Select Type" style="border-style: solid; height: 30px; align-self: center;" [value]="currentSelectedItem().type" (ionChange)="updateSelectedItemType($event.target.value)">
+              <ion-select-option value="Side Dish">Side Dish</ion-select-option>
+              <ion-select-option value="Other">Other</ion-select-option>
             </ion-select></ion-row>
             <ion-row><ion-col style="max-width: 100px;"><p>Prep Time:</p></ion-col>
             <ion-input style="border-style: solid; height: 30px; align-self: center;" [value]="currentSelectedItem().prepTime" (ionChange)="updateSelectedItemPrepTime($event.target.value)"></ion-input></ion-row>

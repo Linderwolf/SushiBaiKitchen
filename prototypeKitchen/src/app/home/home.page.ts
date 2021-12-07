@@ -7,6 +7,7 @@ import { MenuItemsService } from 'src/app/services/menu-items.service';
 import { NewItemModalComponent } from '../components/modals/new-item-modal/new-item-modal.component';
 import { NewIngredientModalComponent } from '../components/modals/new-ingredient-modal/new-ingredient-modal.component';
 import { NewPromotionModalComponent } from '../components/modals/new-promotion-modal/new-promotion-modal.component';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

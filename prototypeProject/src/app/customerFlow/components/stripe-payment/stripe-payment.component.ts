@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TransactionProcessingService } from 'src/app/services/transaction-processing.service';
 
 declare var Stripe;
@@ -10,17 +11,22 @@ declare var Stripe;
 })
 export class StripePaymentComponent implements OnInit {
 
-
+  public errorsExist = true;
   stripe = Stripe('pk_test_XwRn88Fmqzh3966EVK92hpJY00jGOfGKPt');
   card: any;
   // paymentAmount: string = '3.33';
   // currency: string = 'USD';
   // currencyIcon: string = '$';
   // stripeKey: string = "pk_test_XwRn88Fmqzh3966EVK92hpJY00jGOfGKPt";
-  constructor(public transactionService: TransactionProcessingService) { }
+  constructor(public router: Router, public transactionService: TransactionProcessingService) { }
 
   ngOnInit() {
     this.setupStripe();
+  }
+
+  redirectToReceipt()
+  {
+    if (!this.errorsExist) this.router.navigateByUrl('/receipt');
   }
  /**
      * Sets up Stripe Elements and listens for form submission
@@ -54,8 +60,10 @@ export class StripePaymentComponent implements OnInit {
         var displayError = document.getElementById('card-errors');
         if (event.error) {
             displayError.textContent = event.error.message;
+            this.errorsExist = true;
         } else {
             displayError.textContent = '';
+            this.errorsExist = false;
         }
     });
     //Get the form data and listen for submission

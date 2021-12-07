@@ -12,16 +12,17 @@ import { IncomingOrderComponent } from './incoming-orders/incoming-order.compone
 @NgModule({
     declarations: [
       CardOutputComponent,
-      SimpleMenuItemComponent
+      SimpleMenuItemComponent,
+      IncomingOrderComponent
     ],
     imports: [IonicModule,
         CommonModule,
         ReactiveFormsModule,
         FormsModule],
     exports: [
+      CardOutputComponent,
       SimpleMenuItemComponent,
-      //IncomingOrderComponent,
-      CardOutputComponent
+      IncomingOrderComponent
     ],
     entryComponents: [],
 })

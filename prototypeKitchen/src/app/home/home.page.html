@@ -42,7 +42,7 @@
               <ion-col class="cell">Order Items</ion-col>
             </ion-row>
             <ion-content style="height: 81%; text-align: center;">
-              <div *ngFor="let order of ordersService.getAllOrders()">
+              <div *ngFor="let order of allOrders">
                 <app-incoming-order [order]="order"></app-incoming-order>
               </div>
             </ion-content>

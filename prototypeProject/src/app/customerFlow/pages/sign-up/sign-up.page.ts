@@ -18,11 +18,13 @@ export class SignUpPage implements OnInit {
 
   constructor(private formBuilder: FormBuilder,private router: Router) { }
 
-  ngOnInit() {
-    this.form = this.formBuilder.group({
-      username: ['', Validators.required],
-      phone: ['', Validators.required],
-      password: ['', Validators.required],
+  ngOnInit() 
+  {
+    this.form = this.formBuilder.group
+    ({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      phone: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{10}")])],
+      password: ['', Validators.compose([Validators.required, Validators.pattern("[^ ]{6,}")])],
       confirmPassword: ['', Validators.required]
     })
   }
@@ -30,27 +32,25 @@ export class SignUpPage implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.form.controls; }
 
-  onSignup(){
+  onSignup()
+  {
     this.submitted = true;
     this.loading = true;
     // stop here if form is invalid
-    if (this.form.invalid) {
+    if (this.form.invalid) 
+    {
       this.loading = false;
       return;
     }
-
 
     this.loading = false;
     this.router.navigateByUrl('/login')
   }
 
-  checkPasswords(){
+  checkPasswords()
+  {
     console.log("Checking passwords")
-    if(this.f.username.value==this.f.confirmPassword.value){
-      this.validPassword = true;
-    }else{
-      this.validPassword = false;
-    }
+    if(this.f.password.value == this.f.confirmPassword.value) this.validPassword = true;
+    else this.validPassword = false;
   }
-
 }

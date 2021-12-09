@@ -18,7 +18,7 @@
     <form [formGroup]="form" (ngSubmit)="onLogin()" >
       <div>
         <ion-label style="margin-left:10%;color:rgb(255, 57, 57);font-weight: bold;">Email</ion-label>
-        <ion-input placeholder="Username / Email" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" style="margin-top:8px;"></ion-input>
+        <ion-input placeholder="Email" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" style="margin-top:8px;"></ion-input>
         <div *ngIf="submitted && f.username.errors" class="invalid-feedback" >
             <div style="margin-left:10%" *ngIf="f.username.errors.required">Username is required</div>
         </div>
@@ -47,10 +47,10 @@
     <ion-grid>
       <ion-row>
         <ion-col size="6">
-          <ion-label style="color: rgb(170, 170, 170)">Forgot Password?</ion-label>
+          <a routerLink="" style="color: rgb(170, 170, 170)">Forgot Password?</a>
         </ion-col>
         <ion-col size="6">
-          <ion-label routerLink="/sign-up" style="color:rgb(255, 57, 57);font-weight: bold;">Sign Up</ion-label>
+          <a routerLink="/sign-up" style="color:rgb(255, 57, 57);font-weight: bold;">Sign Up</a>
         </ion-col>
       </ion-row>
     </ion-grid>

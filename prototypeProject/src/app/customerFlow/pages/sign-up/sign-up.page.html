@@ -1,5 +1,5 @@
 <ion-content>
-  <div style="margin-left:10%;margin-bottom:32px;margin-top:20%">
+  <div style="margin-left:10%;margin-bottom:32px;margin-top:5%">
     <ion-title style="padding-left:0px;padding-bottom:16px;font-size: x-large;font-weight: bold;">
       Sign Up
     </ion-title>
@@ -10,9 +10,10 @@
     <form [formGroup]="form"  (ngSubmit)="onSignup()" >
       <div>
         <ion-label style="margin-left:10%;color:rgb(255, 57, 57);font-weight: bold;">Email</ion-label>
-        <ion-input placeholder="Username / Email" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" style="margin-top:8px;"></ion-input>
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback" >
-            <div style="margin-left:10%" *ngIf="f.username.errors.required">Username is required</div>
+        <ion-input placeholder="Email" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" style="margin-top:8px;"></ion-input>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback" >
+            <div style="margin-left:10%" *ngIf="f.email.errors.required">Email is required</div>
+            <div style="margin-left:10%" *ngIf="f.email.errors.email">Please enter a real email</div>
         </div>
       </div>
 
@@ -20,7 +21,8 @@
         <ion-label style="margin-left:10%;color:rgb(255, 57, 57);font-weight: bold;">Phone Number</ion-label>
         <ion-input placeholder="Phone Number" type="text" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" style="margin-top:8px;"></ion-input>
         <div *ngIf="submitted && f.phone.errors" class="invalid-feedback" >
-            <div style="margin-left:10%" *ngIf="f.phone.errors.required">phone number is required</div>
+            <div style="margin-left:10%" *ngIf="f.phone.errors.required">Phone number is required</div>
+            <div style="margin-left:10%" *ngIf="f.phone.errors.pattern">Phone number must be 10 digits</div>
         </div>
       </div>
 
@@ -29,6 +31,7 @@
         <ion-input placeholder="Password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" style="margin-top:8px;"></ion-input>
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div style="margin-left:10%" *ngIf="f.password.errors.required">Password is required</div>
+            <div style="margin-left:10%" *ngIf="f.password.errors.pattern">Password must be at least 6 characters</div>
         </div>
       </div>
 
@@ -61,7 +64,7 @@
       <ion-row>
         <ion-col size="12">
           <ion-label style="color: rgb(170, 170, 170)">Have an Account? </ion-label>
-          <ion-label routerLink="/login" style="color:rgb(255, 57, 57);font-weight: bold;">Sign In</ion-label>
+          <a routerLink="/login" style="color:rgb(255, 57, 57);font-weight: bold;">Sign In</a>
         </ion-col>
       </ion-row>
     </ion-grid>

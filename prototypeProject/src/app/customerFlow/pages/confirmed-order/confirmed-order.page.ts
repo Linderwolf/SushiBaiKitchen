@@ -12,15 +12,18 @@ declare var Stripe;
 })
 export class ConfirmedOrderPage implements OnInit {
 
-
-
-
   cardDetails: any;
 
   @ViewChild('stripeButton',{read:ElementRef}) stripeButton : ElementRef;
   constructor(public router: Router,public orderService: OrderedItemsService, public transactionService: TransactionProcessingService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    if (sessionStorage.getItem("loggedIn") == null) 
+    {
+      this.router.navigateByUrl('/login');
+      return;
+    }
   }
 
   roundValue(value: number): number{

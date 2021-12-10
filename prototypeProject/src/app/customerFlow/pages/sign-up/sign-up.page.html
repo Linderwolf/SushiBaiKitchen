@@ -13,7 +13,7 @@
         <ion-input placeholder="Email" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" style="margin-top:8px;"></ion-input>
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback" >
             <div style="margin-left:10%" *ngIf="f.email.errors.required">Email is required</div>
-            <div style="margin-left:10%" *ngIf="f.email.errors.email">Please enter a real email</div>
+            <div style="margin-left:10%" *ngIf="f.email.errors.email">Please enter a valid email</div>
         </div>
       </div>
 

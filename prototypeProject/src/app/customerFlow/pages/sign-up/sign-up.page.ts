@@ -20,6 +20,11 @@ export class SignUpPage implements OnInit {
 
   ngOnInit() 
   {
+    if (sessionStorage.getItem("loggedIn") != null) 
+    {
+      this.router.navigateByUrl('/home');
+      return;
+    }
     this.form = this.formBuilder.group
     ({
       email: ['', Validators.compose([Validators.required, Validators.email])],

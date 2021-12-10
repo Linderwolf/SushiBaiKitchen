@@ -5,12 +5,14 @@ import { MenuItemsService } from 'src/app/services/menu-items.service';
 import { OrderedItemsService } from 'src/app/services/ordered-items.service';
 import { OrderItemModalComponent } from '../../components/modals/order-item-modal/order-item-modal.component';
 import { ViewOrderModalComponent } from '../../components/modals/view-order-modal/view-order-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
+
 export class HomePage implements OnInit {
 
   public viewingCategory = "about";
@@ -21,9 +23,22 @@ export class HomePage implements OnInit {
 
   public search: string = "";
 
-  constructor(public menuService: MenuItemsService, public modalController: ModalController, public orderService: OrderedItemsService) { }
+  constructor(public menuService: MenuItemsService, public modalController: ModalController, 
+    public orderService: OrderedItemsService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    if (sessionStorage.getItem("loggedIn") == null) 
+    {
+      this.router.navigateByUrl('/login');
+      return;
+    }
+
+    this.resetFilters();
+  }
+
+  resetFilters()
+  {
     this.menuService.getAllItems().forEach(menuItem => {
       if(menuItem.popular){
         this.recommendedItems.push(menuItem)
@@ -31,11 +46,17 @@ export class HomePage implements OnInit {
       if(menuItem.recommended){
         this.popularItems.push(menuItem)
       }
-    });
+    });  
   }
 
-  onSearchChange(event){
-    console.log(event);
+  signOut()
+  {
+    sessionStorage.clear();
+    this.router.navigateByUrl('/login');
+  }
+
+  onSearchChange(event)
+  {
     this.search=event;
   }
 

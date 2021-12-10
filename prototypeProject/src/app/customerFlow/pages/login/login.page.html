@@ -18,22 +18,25 @@
     <form [formGroup]="form" (ngSubmit)="onLogin()" >
       <div>
         <ion-label style="margin-left:10%;color:rgb(255, 57, 57);font-weight: bold;">Email</ion-label>
-        <ion-input placeholder="Email" type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" style="margin-top:8px;"></ion-input>
-        <div *ngIf="submitted && f.username.errors" class="invalid-feedback" >
-            <div style="margin-left:10%" *ngIf="f.username.errors.required">Username is required</div>
+        <ion-input placeholder="Email" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" style="margin-top:8px;" (keypress)="onEnter($event.keyCode)"></ion-input>
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback" >
+            <div style="margin-left:10%" *ngIf="f.email.errors.required">Email is required</div>
+            <div style="margin-left:10%" *ngIf="f.email.errors.email">Please enter a valid email</div>
         </div>
       </div>
 
       <div style="margin-top:32px;">
         <ion-label style="margin-left:10%;color:rgb(255, 57, 57);font-weight: bold">Password</ion-label>
-        <ion-input placeholder="Password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" style="margin-top:8px;"></ion-input>
+        <ion-input placeholder="Password" type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" style="margin-top:8px;" (keypress)="onEnter($event.keyCode)"></ion-input>
         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div style="margin-left:10%" *ngIf="f.password.errors.required">Password is required</div>
         </div>
       </div>
 
-
       <div style="padding-top:10%;text-align: center;">
+        <div *ngIf="submitted" class="invalid-feedback">
+          <div>Incorrect email or password.</div>
+        </div>
         <ion-button (click)="onLogin()" class="login" [disabled]="loading">
           <span *ngIf="!loading">Sign In</span>
           <span *ngIf="loading">Signing In...&nbsp;</span>

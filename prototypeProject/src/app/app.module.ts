@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     IonicModule.forRoot(),
     AppRoutingModule,
     ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

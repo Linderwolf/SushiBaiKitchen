@@ -12,7 +12,11 @@ export class ReceiptPage implements OnInit {
 
   ngOnInit() 
   {
-
+    if (sessionStorage.getItem("loggedIn") == null) 
+    {
+      this.router.navigateByUrl('/login');
+      return;
+    }
   }
 
   redirectToHome()

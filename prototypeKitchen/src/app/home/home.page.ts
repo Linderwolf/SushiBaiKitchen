@@ -132,18 +132,19 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
-  async newIngredientCreator()
+  async newSupplyCreator()
   {
     const modal = await this.modalController.create
     ({
       component: NewIngredientModalComponent,
-      cssClass: 'NewIngredientModal',
+      cssClass: 'NewIngrediantModal',
       componentProps:
       {
-        item: this.menuItem
+        homePage: this
       }
     });
     return await modal.present();
+  
   }
 
   async newPromotionCreator()

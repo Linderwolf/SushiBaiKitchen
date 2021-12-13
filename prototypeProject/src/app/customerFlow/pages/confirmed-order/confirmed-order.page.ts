@@ -25,6 +25,7 @@ export class ConfirmedOrderPage implements OnInit {
       this.router.navigateByUrl('/login');
       return;
     }
+    console.log(this.orderService.getAllItems());
   }
 
   roundValue(value: number): number{

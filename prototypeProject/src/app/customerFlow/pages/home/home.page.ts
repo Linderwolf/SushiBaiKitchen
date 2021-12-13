@@ -39,6 +39,8 @@ export class HomePage implements OnInit {
 
   resetFilters()
   {
+    this.recommendedItems = [];
+    this.popularItems = [];
     this.menuService.getAllItems().forEach(menuItem => {
       if(menuItem.popular){
         this.recommendedItems.push(menuItem)

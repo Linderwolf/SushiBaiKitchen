@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuItem } from 'src/app/models/menuItem';
+import { OrderedItemsService } from 'src/app/services/ordered-items.service';
+import { TransactionProcessingService } from 'src/app/services/transaction-processing.service';
 
 @Component({
   selector: 'app-receipt',
@@ -8,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class ReceiptPage implements OnInit {
 
-  constructor(public router: Router) { }
+  @ViewChild('stripeButton',{read:ElementRef}) stripeButton : ElementRef;
+  constructor(public router: Router,public orderService: OrderedItemsService, public transactionService: TransactionProcessingService) { }
 
   ngOnInit() 
   {
@@ -18,7 +22,8 @@ export class ReceiptPage implements OnInit {
       this.router.navigateByUrl('/login');
       return;
     }
-    else sessionStorage.removeItem("ordered");
+    
+    sessionStorage.removeItem("ordered");
   }
 
   redirectToHome()

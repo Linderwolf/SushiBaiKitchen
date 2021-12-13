@@ -7,6 +7,8 @@ import { MenuItemsService } from 'src/app/services/menu-items.service';
 import { NewItemModalComponent } from '../components/modals/new-item-modal/new-item-modal.component';
 import { NewIngredientModalComponent } from '../components/modals/new-ingredient-modal/new-ingredient-modal.component';
 import { NewPromotionModalComponent } from '../components/modals/new-promotion-modal/new-promotion-modal.component';
+import { RejectConfirmationModalComponent } from '../components/modals/reject-confirmation-modal/reject-confirmation-modal.component'
+import { modalController } from '@ionic/core';
 
 @Component({
   selector: 'app-home',
@@ -34,6 +36,7 @@ export class HomePage implements OnInit {
 
     this.orderService.getAllOrders().forEach(order => {
       this.allOrders.push(order);
+    this.order = this.allOrders[0];
     });
     
   }
@@ -183,10 +186,25 @@ export class HomePage implements OnInit {
     if (this.order == null) return this.orderService.getAllOrders()[0];
     return this.order;
   }
+
+  async rejectConfirmationCreator()
+  {
+    const modal = await this.modalController.create
+    ({
+      component: RejectConfirmationModalComponent,
+      componentProps:
+      {
+        homePage: this
+      }
+    });
+    return await modal.present();
+  }
+
+  //   return await modal.present();
+  // }
   // sumSubTotal(order)
   // {
   //   return (this.currentSelectedOrder().orderQuantity * this.currentSelectedOrder().recipe.recipePriceprice);
   // }
   //#endregion
 }
-

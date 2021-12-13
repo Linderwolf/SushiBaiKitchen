@@ -1,4 +1,4 @@
-<ion-content>
+
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -13,7 +13,7 @@
     <!-- <ion-title> {{menuItem.name}} - {{menuItem.englishName}}</ion-title> -->
   </ion-toolbar>
 </ion-header>
-
+<ion-content>
 <ion-grid class="menuCard">
   <ion-row>
     <ion-col>
@@ -46,7 +46,7 @@
     </ion-col>
     <ion-col size="6" style="text-align: right;justify-content: center;">
       <ion-icon *ngIf="quantity>1&&!removeFromOrder" style="width:30px;height:30px" name="remove-circle-outline" (click)="quantity=quantity-1"></ion-icon>
-      <ion-label style="font-size: larger;padding:8px;" >{{quantity}}</ion-label>
+      <ion-label style="font-size: larger;padding: 8px;position: relative; bottom: 7px" >{{quantity}}</ion-label>
       <ion-icon *ngIf="!removeFromOrder" name="add-circle-outline" style="width:30px;height:30px;" (click)="quantity=quantity+1"></ion-icon>
     </ion-col>
   </ion-row>

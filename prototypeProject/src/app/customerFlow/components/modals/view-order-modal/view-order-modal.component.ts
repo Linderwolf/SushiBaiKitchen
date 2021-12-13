@@ -27,6 +27,7 @@ export class ViewOrderModalComponent implements OnInit {
   }
 
   cancelOrder(){
+    sessionStorage.removeItem("ordered");
     this.orderService.removeAll();
     this.closeModal();
   }
@@ -53,6 +54,7 @@ export class ViewOrderModalComponent implements OnInit {
   }
 
   confirmOrder(){
+    sessionStorage.setItem("ordered", "true");
     this.router.navigateByUrl('/confirmed-order');
     this.closeModal()
   }

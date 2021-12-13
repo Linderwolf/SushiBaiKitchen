@@ -135,20 +135,6 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
-  async newIngredientCreator()
-  {
-    const modal = await this.modalController.create
-    ({
-      component: NewIngredientModalComponent,
-      cssClass: 'NewIngrediantModal',
-      componentProps:
-      {
-        homePage: this
-      }
-    });
-    return await modal.present();
-  }
-
   async newSupplyCreator()
   {
     const modal = await this.modalController.create
@@ -161,6 +147,7 @@ export class HomePage implements OnInit {
       }
     });
     return await modal.present();
+  
   }
 
   async newPromotionCreator()

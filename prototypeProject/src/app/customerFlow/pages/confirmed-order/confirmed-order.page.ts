@@ -19,7 +19,8 @@ export class ConfirmedOrderPage implements OnInit {
 
   ngOnInit() 
   {
-    if (sessionStorage.getItem("loggedIn") == null) 
+    if (sessionStorage.getItem("loggedIn") == null ||
+    sessionStorage.getItem("ordered") == null) 
     {
       this.router.navigateByUrl('/login');
       return;
@@ -31,8 +32,8 @@ export class ConfirmedOrderPage implements OnInit {
   }
 
   cancelOrder(){
+    sessionStorage.removeItem("ordered");
     this.orderService.removeAll();
     this.router.navigateByUrl('/home');
   }
-
 }

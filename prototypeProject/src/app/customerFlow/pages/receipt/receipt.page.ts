@@ -12,15 +12,18 @@ export class ReceiptPage implements OnInit {
 
   ngOnInit() 
   {
-    if (sessionStorage.getItem("loggedIn") == null) 
+    if (sessionStorage.getItem("loggedIn") == null ||
+    sessionStorage.getItem("ordered") == null) 
     {
       this.router.navigateByUrl('/login');
       return;
     }
+    else sessionStorage.removeItem("ordered");
   }
 
   redirectToHome()
   {
+    sessionStorage.removeItem("ordered");
     this.router.navigateByUrl('/home');
   }
 }

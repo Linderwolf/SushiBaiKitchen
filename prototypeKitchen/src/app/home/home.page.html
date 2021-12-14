@@ -15,8 +15,11 @@
           </ion-segment-button>
         </ion-segment>
       </ion-col>
-      <ion-col size="6">
+      <ion-col size="5">
+      </ion-col>
+      <ion-col size="1">
         <!--TODO: Header Logged In & Time -->
+        <p>{{ currentDateTime() | date: 'MMMM dd, yyyy' }}</p>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -31,11 +34,11 @@
         <ion-row style="height: 100%;">
           <!-- #region Left Main Column / Incoming Orders -->
           <ion-col size="5" style="height: 100%; border-style: solid; border-width: 5px 5px 0px 0px; border-color: black; background-color: grey;">
-            <ion-title style="text-align: center;">Incoming Orders</ion-title>
+            <ion-title style="text-align: center;"><b>Incoming Orders</b></ion-title>
             <ion-row style="height: 5.5%"></ion-row>
             <ion-row style="text-align: center;">
               <ion-col class="cell">Customer Name</ion-col>
-              <ion-col class="cell">Order Placed</ion-col>
+              <ion-col class="cell">Order Placed For</ion-col>
               <ion-col class="cell">Order Items</ion-col>
             </ion-row>
             <ion-content style="height: 75%; text-align: center;">
@@ -46,7 +49,7 @@
             <!-- #endregion -->
           </ion-col>
           <ion-col size="6" style="height: 100%; border-style: solid; border-width: 5px 5px 0px 0px; border-color: black; background-color: grey;">
-            <ion-title style="text-align: center;">Order Summary</ion-title>
+            <ion-title style="text-align: center;"><b>Order Summary</b></ion-title>
             <ion-row>
               <p>Customer Name:</p><ion-input disabled="true">&nbsp;{{currentSelectedOrder().user.firstName}}&nbsp;{{currentSelectedOrder().user.lastName}}</ion-input>
               <p>Phone Number:</p> <ion-input [value]="currentSelectedOrder().user.phone" disabled="true"></ion-input>
@@ -75,14 +78,16 @@
               <ion-card style="height: 12%; text-align: center; background-color: whitesmoke; align-self:flex-end;">
                 <ion-card-content>
                   <ion-row>
-                    <ion-col class="cell">Additional Notes: {{currentSelectedOrder().orderNotes}}</ion-col>
+                    <ion-col class="cell"><b>Additional Notes:</b> <p>{{currentSelectedOrder().orderNotes}}</p></ion-col>
                     <ion-col></ion-col>
                     <ion-col>
-                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="danger" (click)="confirmationCreator()">Reject</ion-button>
-                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="success" (click)="confirmationCreator()">Complete</ion-button>
+                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="danger" (click)="rejectConfirmationCreator()">Reject</ion-button>
+                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="success" (click)="rejectConfirmationCreator()">Complete</ion-button>
                     </ion-col>
                     <ion-col></ion-col>
-                    <ion-col class="cell">Subtotal: ${{1.23 | number:'1.2-2'}}</ion-col> <!-- TO DO!!!! -->
+                    <ion-col class="cell">
+                      <p>Subtotal: ${{sumSubTotal() | number:'1.2-2'}}</p>
+                    </ion-col> <!-- TO DO!!!! -->
                   </ion-row>
                 </ion-card-content>
               </ion-card>

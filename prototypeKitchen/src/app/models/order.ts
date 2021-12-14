@@ -2,9 +2,9 @@ export class Order {
   orderID: number;
   user: User;
   orderItems: OrderItems[];
-  orderAccepted: boolean;
-  orderReady: boolean;
-  orderFulfilled: boolean;
+  orderAcceptedDate: string|null;
+  orderReadyDate: string|null;
+  orderFulfilledDate: string|null;
   orderDate: string;
   orderNotes: string;
 }

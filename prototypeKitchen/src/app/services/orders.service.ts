@@ -15,9 +15,9 @@ export class OrdersService {
             orderDate: DateTime;
 }
 */
-orderAccepted: false;
-orderReady: false;
-orderFulfilled: false;
+orderAcceptedDate: string|null;
+orderReadyDate: string|null;
+orderFulfilledDate: string|null;
 
   private allOrders: Order[] = [
     {
@@ -26,9 +26,9 @@ orderFulfilled: false;
       orderItems: OrderItems[1] = [{recipe: {recipeID: 4, recipeName: "Chiraishi", recipeEnglishName: "Mixed Salmon Bowl", recipeImage: "assets/images/Menu_Salmon_Chiraishi.png", recipeQuantity: 1, recipeDescription: "", recipePrice: 12.99, recipeIsAvailable: true, recipeIsPopular: true, recipeCalories: 1000}, orderQuantity: 1}],
       orderDate: "2021-11-30T19:20-05:00",
       orderNotes: "Could I get 2 sets of chopsticks?",
-      orderAccepted: false,
-      orderReady: false,
-      orderFulfilled: false
+      orderAcceptedDate: "2021-11-30T19:21-05:00",
+      orderReadyDate: null,
+      orderFulfilledDate: null
     },
     { 
       orderID: 2,
@@ -40,9 +40,9 @@ orderFulfilled: false;
       ],
       orderDate: "2021-11-30T19:21-05:00",
       orderNotes: "No wasabi, please!",
-      orderAccepted: false,
-      orderReady: false,
-      orderFulfilled: false
+      orderAcceptedDate: "2021-11-30T19:22-05:00",
+      orderReadyDate: null,
+      orderFulfilledDate: null
     },
     {
       orderID: 3,
@@ -50,9 +50,9 @@ orderFulfilled: false;
       orderItems: OrderItems[1] = [{recipe: {recipeID: 5, recipeName: "Ikura Gunkan Maki", recipeEnglishName: "Salmon Roe Uramaki", recipeImage: "assets/images/Menu_Ikura_Gunkan.png", recipeQuantity: 2, recipeDescription: "", recipePrice: 8.99, recipeIsAvailable: true, recipeIsPopular: true, recipeCalories: 1000}, orderQuantity: 1}],
       orderDate: "2021-11-30T19:21-05:00",
       orderNotes: "",
-      orderAccepted: false,
-      orderReady: false,
-      orderFulfilled: false
+      orderAcceptedDate: "2021-11-30T19:22-05:00",
+      orderReadyDate: null,
+      orderFulfilledDate: null
     },
     {
       orderID: 4,
@@ -60,9 +60,9 @@ orderFulfilled: false;
       orderItems: OrderItems[1] = [{recipe: {recipeID: 4, recipeName: "Chiraishi", recipeEnglishName: "Chiraishi", recipeImage: "assets/images/Menu_Salmon_Chiraishi.png", recipeQuantity: 1, recipeDescription: "", recipePrice: 12.99, recipeIsAvailable: true, recipeIsPopular: true, recipeCalories: 1000}, orderQuantity: 1}],
       orderDate: "2021-11-30T19:22-05:00",
       orderNotes: "I don't want any sesame...",
-      orderAccepted: false,
-      orderReady: false,
-      orderFulfilled: false
+      orderAcceptedDate: "2021-11-30T19:22-05:00",
+      orderReadyDate: null,
+      orderFulfilledDate: null
     },
     {
       orderID: 5,
@@ -72,9 +72,9 @@ orderFulfilled: false;
         {recipe: {recipeID: 2, recipeName: "Croquettes", recipeEnglishName: "Croquettes", recipeImage: "assets/images/Menu_Croquettes.png", recipeQuantity: 4, recipeDescription: "", recipePrice: 4.99, recipeIsAvailable: true, recipeIsPopular: true, recipeCalories: 1000}, orderQuantity: 2}],
       orderDate: "2021-11-30T19:23-05:00",
       orderNotes: "",
-      orderAccepted: false,
-      orderReady: false,
-      orderFulfilled: false
+      orderAcceptedDate: "2021-11-30T19:24-05:00",
+      orderReadyDate: null,
+      orderFulfilledDate: null
     },
     {
       orderID: 6,
@@ -87,9 +87,9 @@ orderFulfilled: false;
       ],
       orderDate: "2021-11-30T19:24-05:00",
       orderNotes: "",
-      orderAccepted: false,
-      orderReady: false,
-      orderFulfilled: false
+      orderAcceptedDate: "2021-11-30T19:24-05:00",
+      orderReadyDate: null,
+      orderFulfilledDate: null
     },
     {
       orderID: 7,
@@ -99,9 +99,9 @@ orderFulfilled: false;
       ],
       orderDate: "2021-11-30T19:25-05:00",
       orderNotes: "",
-      orderAccepted: false,
-      orderReady: false,
-      orderFulfilled: false
+      orderAcceptedDate: null,
+      orderReadyDate: null,
+      orderFulfilledDate: null
     },
     {
       orderID: 8,
@@ -111,9 +111,9 @@ orderFulfilled: false;
       ],
       orderDate: "2021-11-30T19:25-05:00",
       orderNotes: "",
-      orderAccepted: false,
-      orderReady: false,
-      orderFulfilled: false
+      orderAcceptedDate: null,
+      orderReadyDate: null,
+      orderFulfilledDate: null
     }
   ]
 

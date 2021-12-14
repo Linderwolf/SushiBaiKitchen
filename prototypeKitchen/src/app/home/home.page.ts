@@ -36,9 +36,8 @@ export class HomePage implements OnInit {
 
     this.orderService.getAllOrders().forEach(order => {
       this.allOrders.push(order);
-    this.order = this.allOrders[0];
     });
-    
+    this.order = this.allOrders[0];
   }
   //#region menuItems
 
@@ -187,6 +186,7 @@ export class HomePage implements OnInit {
     return this.order;
   }
 
+  // Creates a Modal to ask for confirmation of a Rejected Order
   async rejectConfirmationCreator()
   {
     const modal = await this.modalController.create
@@ -200,11 +200,27 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
-  //   return await modal.present();
-  // }
-  // sumSubTotal(order)
-  // {
-  //   return (this.currentSelectedOrder().orderQuantity * this.currentSelectedOrder().recipe.recipePriceprice);
-  // }
+  // Calculates the subtotal of an order
+  sumSubTotal()
+  {
+    let subTotal:number = 0
+
+    for (let i = 0; i < this.currentSelectedOrder().orderItems.length; i++){
+    
+      subTotal += (this.currentSelectedOrder().orderItems[i].orderQuantity * this.currentSelectedOrder().orderItems[i].recipe.recipePrice);
+    }
+    return subTotal;
+  }
+
+  // Returns the current DateTime
+  currentDateTime()
+  {
+    let dateTimeNow = Date.now();
+    return dateTimeNow;
+
+    // {{ currentDateTime() | date: 'hh:mm dd MMM, yyyy' }}
+  }
+
+
   //#endregion
 }

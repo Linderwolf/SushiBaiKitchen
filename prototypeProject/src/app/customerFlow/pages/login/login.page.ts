@@ -61,5 +61,6 @@ export class LoginPage implements OnInit {
     this.loading = false;
     sessionStorage.setItem("loggedIn", "true");
     this.router.navigateByUrl('/home')
+    this.submitted = false;
   }
 }

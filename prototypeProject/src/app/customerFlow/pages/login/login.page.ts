@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataConnectionService } from 'src/app/services/data-connection.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginPage implements OnInit {
   public submitted: boolean = false;
   public loading: boolean = false;
 
-  constructor(private formBuilder: FormBuilder,private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private router: Router, private connection: DataConnectionService) { }
 
   ngOnInit() 
   {
@@ -52,7 +53,12 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    if (this.f.email.value != "test@test.com" || this.f.password.value != "123456") 
+    var data = {
+      email: this.f.email.value,
+      password: this.f.password.value
+    };
+
+    if (!this.connection.login(data)) 
     {
       this.loading = false;
       return;

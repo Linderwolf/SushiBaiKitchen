@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataConnectionService } from 'src/app/services/data-connection.service';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
   styleUrls: ['./sign-up.page.scss'],
 })
+
 export class SignUpPage implements OnInit {
 
   form: FormGroup;
@@ -16,7 +18,7 @@ export class SignUpPage implements OnInit {
   public validPassword: boolean = true;
   public agreedToTOS: boolean = false;
 
-  constructor(private formBuilder: FormBuilder,private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private router: Router, private connection: DataConnectionService) { }
 
   ngOnInit() 
   {
@@ -28,6 +30,8 @@ export class SignUpPage implements OnInit {
     this.form = this.formBuilder.group
     ({
       email: ['', Validators.compose([Validators.required, Validators.email])],
+      firstName: ['', Validators.compose([Validators.required, Validators.pattern("[^0-9]*")])],
+      lastName: ['', Validators.compose([Validators.required, Validators.pattern("[^0-9]*")])],
       phone: ['', Validators.compose([Validators.required, Validators.pattern("[0-9]{10}")])],
       password: ['', Validators.compose([Validators.required, Validators.pattern("[^ ]{6,}")])],
       confirmPassword: ['', Validators.required],
@@ -50,6 +54,18 @@ export class SignUpPage implements OnInit {
     }
 
     this.loading = false;
+
+    var data = {
+      email: this.f.email.value,
+      firstName: this.f.firstName.value,
+      lastName: this.f.lastName.value,
+      phone: this.f.phone.value,
+      password: this.f.password.value,
+      isActive: 1
+    };
+
+    this.connection.register(data);
+
     this.router.navigateByUrl('/login')
   }
 

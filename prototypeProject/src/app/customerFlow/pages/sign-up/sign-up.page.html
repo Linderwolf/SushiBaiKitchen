@@ -10,7 +10,7 @@
     <form [formGroup]="form"  (ngSubmit)="onSignup()" >
       <div>
         <ion-label style="margin-left:10%;color:rgb(255, 57, 57);font-weight: bold;">Email</ion-label>
-        <ion-input placeholder="Email" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" style="margin-top:8px;"></ion-input>
+        <ion-input placeholder="example@email.com" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" style="margin-top:8px;"></ion-input>
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback" >
             <div style="margin-left:10%" *ngIf="f.email.errors.required">Email is required</div>
             <div style="margin-left:10%" *ngIf="f.email.errors.email">Please enter a valid email</div>
@@ -18,8 +18,24 @@
       </div>
 
       <div style="margin-top:32px;">
+        <ion-label style="margin-left:10%;color:rgb(255, 57, 57);font-weight: bold;">First Name</ion-label>
+        <ion-input placeholder="John" type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" style="margin-top:8px;"></ion-input>
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback" >
+            <div style="margin-left:10%" *ngIf="f.firstName.errors">First name is required</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;">
+        <ion-label style="margin-left:10%;color:rgb(255, 57, 57);font-weight: bold;">Last Name</ion-label>
+        <ion-input placeholder="Doe" type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" style="margin-top:8px;"></ion-input>
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback" >
+            <div style="margin-left:10%" *ngIf="f.lastName.errors">Last name is required</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;">
         <ion-label style="margin-left:10%;color:rgb(255, 57, 57);font-weight: bold;">Phone Number</ion-label>
-        <ion-input placeholder="Phone Number" type="text" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" style="margin-top:8px;"></ion-input>
+        <ion-input placeholder="Ex. 1234567890" type="text" formControlName="phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" style="margin-top:8px;"></ion-input>
         <div *ngIf="submitted && f.phone.errors" class="invalid-feedback" >
             <div style="margin-left:10%" *ngIf="f.phone.errors.required">Phone number is required</div>
             <div style="margin-left:10%" *ngIf="f.phone.errors.pattern">Phone number must be 10 digits</div>
@@ -46,8 +62,8 @@
       <div style="margin-top:32px; margin-left: 10%;">
         <ion-checkbox formControlName="tos" (ngModelChange)="updateAgreed(f.tos.value)"></ion-checkbox><ion-label> I agree to the Sushi Bai Kiyoshi <a routerLink="">Terms of Service</a> and <a routerLink="">Privacy Policy</a>.</ion-label>
       </div>
-
-      <div style="padding-top:5%;text-align: center;">
+      <br/>
+      <div style="text-align: center;">
         <div *ngIf="submitted && !agreedToTOS" class="invalid-feedback">
           <div>Please read and agree to the ToS</div>
         </div>
@@ -58,7 +74,7 @@
       </ion-button>
       </div>
       
-    <div style="text-align: center;position:absolute;bottom:32px;width:100%;">
+    <div style="text-align: center;bottom:32px;width:100%;">
       <ion-grid>
         <ion-row>
           <ion-col size="12">
@@ -70,4 +86,5 @@
     </div>
     </form>
   </div>
+  <br/><br/><br/>
 </ion-content>

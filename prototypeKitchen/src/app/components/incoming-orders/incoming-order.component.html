@@ -2,7 +2,7 @@
   <ion-card-content>
     <ion-row>
       <ion-col style="border-style: solid; border-width: 0px 1px 0px 0px">{{order.user.firstName}} {{order.user.lastName}}</ion-col>
-      <ion-col style="border-style: solid; border-width: 0px 1px 0px 0px">{{order.orderDate | date: 'h:mm'}}</ion-col>
+      <ion-col style="border-style: solid; border-width: 0px 1px 0px 0px" size="2">{{order.orderDate | date: 'h:mm'}}</ion-col>
       <ion-col>
         <ng-container *ngFor="let o of order.orderItems">
           {{o.orderQuantity}}&nbsp;{{o.recipe.recipeName}},
@@ -12,6 +12,3 @@
   </ion-card-content> 
   <ion-ripple-effect></ion-ripple-effect> 
 </ion-card>
-
-<!-- TO DO: Format Dates -->
-<!--<IonDatetime displayFormat="HH:mm", value=></IonDatetime>-->

@@ -5,17 +5,18 @@ import { HomePage } from 'src/app/home/home.page';
 import { Order } from 'src/app/models/order';
 
 @Component({
-  selector: 'app-reject-confirmation-modal',
-  templateUrl: './reject-confirmation-modal.component.html',
-  styleUrls: ['./reject-confirmation-modal.component.scss'],
+  selector: 'app-reject-order-modal',
+  templateUrl: './reject-order-modal.component.html',
+  styleUrls: ['./reject-order-modal.component.scss'],
 })
-export class RejectConfirmationModalComponent implements OnInit {
+export class RejectOrderModalComponent implements OnInit {
   @Input() homePage: HomePage;
-  public order = new Order();
 
-  constructor(public modalCtrl: ModalController) { }
+  constructor(public modalCtrl: ModalController) { 
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   closeModal(){
     this.modalCtrl.dismiss();

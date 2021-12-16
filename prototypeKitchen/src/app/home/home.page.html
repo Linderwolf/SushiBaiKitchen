@@ -18,7 +18,7 @@
       <ion-col size="5">
       </ion-col>
       <ion-col size="1">
-        <!--TODO: Header Logged In & Time -->
+        <!--TODO: Header Logged In & Time - PETER -->
         <p>{{ currentDateTime() | date: 'MMMM dd, yyyy' }}</p>
       </ion-col>
     </ion-row>
@@ -38,7 +38,7 @@
             <ion-row style="height: 5.5%"></ion-row>
             <ion-row style="text-align: center;">
               <ion-col class="cell">Customer Name</ion-col>
-              <ion-col class="cell">Order Placed For</ion-col>
+              <ion-col class="cell" size="2">Order Placed For</ion-col>
               <ion-col class="cell">Order Items</ion-col>
             </ion-row>
             <ion-content style="height: 75%; text-align: center;">
@@ -48,12 +48,12 @@
             </ion-content>
             <!-- #endregion -->
           </ion-col>
-          <ion-col size="6" style="height: 100%; border-style: solid; border-width: 5px 5px 0px 0px; border-color: black; background-color: grey;">
+          <ion-col size="7" style="height: 100%; border-style: solid; border-width: 5px 5px 0px 0px; border-color: black; background-color: grey;">
             <ion-title style="text-align: center;"><b>Order Summary</b></ion-title>
             <ion-row>
-              <p>Customer Name:</p><ion-input disabled="true">&nbsp;{{currentSelectedOrder().user.firstName}}&nbsp;{{currentSelectedOrder().user.lastName}}</ion-input>
-              <p>Phone Number:</p> <ion-input [value]="currentSelectedOrder().user.phone" disabled="true"></ion-input>
-              <p>Email Address:</p> <ion-input [value]="currentSelectedOrder().user.email" disabled="true"></ion-input>
+              <p>Customer Name:</p><ion-input disabled="true">&nbsp;{{currentSelectedOrder().user.firstName}}&nbsp;{{currentSelectedOrder().user.lastName}}</ion-input>&nbsp;
+              <p>Phone Number:</p> <ion-input [value]="currentSelectedOrder().user.phone" disabled="true"></ion-input>&nbsp;
+              <p>Email Address:</p> <ion-input [value]="currentSelectedOrder().user.email" disabled="true"></ion-input>&nbsp;
               <p>Order Number:</p> <ion-input [value]="currentSelectedOrder().orderID" disabled="true"></ion-input>
             </ion-row>
             <ion-row style="text-align: center;">
@@ -78,16 +78,17 @@
               <ion-card style="height: 12%; text-align: center; background-color: whitesmoke; align-self:flex-end;">
                 <ion-card-content>
                   <ion-row>
-                    <ion-col class="cell"><b>Additional Notes:</b> <p>{{currentSelectedOrder().orderNotes}}</p></ion-col>
+                    <ion-col class="cell"><b>Additional Notes:</b> <p></p> <p>{{additionalNotes()}}</p></ion-col>
                     <ion-col></ion-col>
                     <ion-col>
-                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="danger" (click)="rejectConfirmationCreator()">Reject</ion-button>
-                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="success" (click)="rejectConfirmationCreator()">Complete</ion-button>
+                      <br/>
+                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="danger" (click)="rejectButtonPressed()">Reject</ion-button>
                     </ion-col>
                     <ion-col></ion-col>
                     <ion-col class="cell">
                       <p>Subtotal: ${{sumSubTotal() | number:'1.2-2'}}</p>
-                    </ion-col> <!-- TO DO!!!! -->
+                      <ion-button shape="round" style="text-align: center; size: small; font-weight: bold;" color="success" (click)="completeButtonPressed()">Complete</ion-button>
+                    </ion-col>
                   </ion-row>
                 </ion-card-content>
               </ion-card>

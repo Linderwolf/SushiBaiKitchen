@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Order, OrderItems, Recipe, User } from '../models/order';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
 
 /*
-
           export class Order {
             orderID: number;
             userID: User[];
@@ -99,7 +99,7 @@ orderFulfilledDate: string|null;
       ],
       orderDate: "2021-11-30T19:25-05:00",
       orderNotes: "",
-      orderAcceptedDate: null,
+      orderAcceptedDate: "2021-11-30T19:25-05:00",
       orderReadyDate: null,
       orderFulfilledDate: null
     },
@@ -111,7 +111,19 @@ orderFulfilledDate: string|null;
       ],
       orderDate: "2021-11-30T19:25-05:00",
       orderNotes: "",
-      orderAcceptedDate: null,
+      orderAcceptedDate: "2021-11-30T19:25-05:00",
+      orderReadyDate: null,
+      orderFulfilledDate: null
+    },
+    {
+      orderID: 9,
+      user: {userID: 8, firstName: "John", lastName: "Madden", address: "749 2nd St.", phone: 9059992845, email: "JMad@nfl.com", password: "123321", isActive: true},
+      orderItems: OrderItems[1] = [
+        {recipe: {recipeID: 6, recipeName: "Kappa Maki", recipeEnglishName: "Cucumber", recipeImage: "/assets/images/Menu_Kappa_Maki.png", recipeQuantity: 1, recipeDescription: "", recipePrice: 8.99, recipeIsAvailable: true, recipeIsPopular: true, recipeCalories: 1000}, orderQuantity: 1}
+      ],
+      orderDate: "2021-11-30T19:26-05:00",
+      orderNotes: "",
+      orderAcceptedDate: "2021-11-30T19:26-05:00",
       orderReadyDate: null,
       orderFulfilledDate: null
     }

@@ -7,7 +7,7 @@
       - {{menuItem.name}}
     </ion-col>
     <ion-col size="4" style="text-align: right;">
-      ${{roundValue(menuItem.price*quantity)}}
+      ${{roundValue(menuItem.price*quantity) | number:'1.2-2'}}
     </ion-col>
   </ion-row>
 </ion-grid>

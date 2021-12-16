@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { RejectConfirmationModalComponent } from './reject-confirmation-modal.component';
+import { CompleteOrderModalComponent } from './complete-order-modal.component';
 
-describe('NewItemModalComponent', () => {
-  let component: RejectConfirmationModalComponent;
-  let fixture: ComponentFixture<RejectConfirmationModalComponent>;
+describe('CompleteOrderModalComponent', () => {
+  let component: CompleteOrderModalComponent;
+  let fixture: ComponentFixture<CompleteOrderModalComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ RejectConfirmationModalComponent ],
+      declarations: [ CompleteOrderModalComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RejectConfirmationModalComponent);
+    fixture = TestBed.createComponent(CompleteOrderModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

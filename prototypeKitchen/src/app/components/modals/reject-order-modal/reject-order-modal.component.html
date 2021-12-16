@@ -1,0 +1,22 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()" style="color:rgb(255, 57, 57);">
+          X
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid>
+    <ion-col>
+      <ion-row>
+        <ion-list style="text-align:center">
+          <ion-title style="text-align: center; color:rgb(255, 57, 57)">Reject this order?</ion-title>
+          <br/>
+          <ion-button style="text-align: center; size: small; font-weight: bold;" (click)="rejectOrder()">Yes, reject this order.</ion-button>
+        </ion-list>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

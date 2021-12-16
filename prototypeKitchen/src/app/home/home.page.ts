@@ -7,8 +7,9 @@ import { MenuItemsService } from 'src/app/services/menu-items.service';
 import { NewItemModalComponent } from '../components/modals/new-item-modal/new-item-modal.component';
 import { NewIngredientModalComponent } from '../components/modals/new-ingredient-modal/new-ingredient-modal.component';
 import { NewPromotionModalComponent } from '../components/modals/new-promotion-modal/new-promotion-modal.component';
-import { RejectConfirmationModalComponent } from '../components/modals/reject-confirmation-modal/reject-confirmation-modal.component'
+import { CompleteOrderModalComponent } from '../components/modals/complete-order-modal/complete-order-modal.component'
 import { modalController } from '@ionic/core';
+import { RejectOrderModalComponent } from '../components/modals/reject-order-modal/reject-order-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -39,8 +40,9 @@ export class HomePage implements OnInit {
     });
     this.order = this.allOrders[0];
   }
-  //#region menuItems
-
+  //
+  // #region menuItems - Ahmed
+  //
   onSearchChange(event){
     console.log(event);
     this.search=event;
@@ -187,8 +189,9 @@ export class HomePage implements OnInit {
     }
   }
   //#endregion
-  //#region Orders
-
+  //
+  //  #region Orders  - Peter
+  //
   changeSelectedOrder(order)
   {
     this.order = order;
@@ -199,12 +202,37 @@ export class HomePage implements OnInit {
     return this.order;
   }
 
-  // Creates a Modal to ask for confirmation of a Rejected Order
-  async rejectConfirmationCreator()
+  rejectOrder()
+  {
+    this.allOrders.splice(this.allOrders.length - 1, this.allOrders.indexOf(this.order))
+    
+    this.currentSelectedOrder().orderFulfilledDate = this.currentDateTime().toString()
+  }
+
+  completeOrder()
+  {
+    this.allOrders.splice(this.allOrders.length - 1, this.allOrders.indexOf(this.order) )
+
+    this.currentSelectedOrder().orderFulfilledDate = this.currentDateTime().toString()
+  }
+
+
+  rejectButtonPressed()
+  {
+    this.rejectOrderCreator();
+  }
+
+  completeButtonPressed()
+  {
+    this.completeOrderCreator();
+  }
+
+  // Creates a Modal to ask for confirmation of an Order's Rejection
+  async rejectOrderCreator()
   {
     const modal = await this.modalController.create
     ({
-      component: RejectConfirmationModalComponent,
+      component: RejectOrderModalComponent,
       componentProps:
       {
         homePage: this
@@ -212,6 +240,37 @@ export class HomePage implements OnInit {
     });
     return await modal.present();
   }
+  
+  // Creates a Modal to ask for confirmation of an Order's Completion
+  async completeOrderCreator()
+  {
+    const modal = await this.modalController.create
+    ({
+      component: CompleteOrderModalComponent,
+      componentProps:
+      {
+        homePage: this
+      }
+    });
+    return await modal.present();
+  }
+
+  // Failed attempt at refactoring into 1 modal...
+  //
+  //
+  // // Creates a Modal to ask for confirmation of a button press
+  // async rejectConfirmationCreator()
+  // {
+  //   const modal = await this.modalController.create
+  //   ({
+  //     component: RejectConfirmationModalComponent,
+  //     componentProps:
+  //     {
+  //       homePage: this
+  //     }
+  //   });
+  //   return await modal.present();
+  // }
 
   // Calculates the subtotal of an order
   sumSubTotal()
@@ -223,6 +282,19 @@ export class HomePage implements OnInit {
       subTotal += (this.currentSelectedOrder().orderItems[i].orderQuantity * this.currentSelectedOrder().orderItems[i].recipe.recipePrice);
     }
     return subTotal;
+  }
+
+  // Returns an order's Additional Notes
+  additionalNotes()
+  {
+    if (this.currentSelectedOrder().orderNotes == null || this.currentSelectedOrder().orderNotes == "")
+    {
+      return "None";
+    }
+    else
+    {
+      return this.currentSelectedOrder().orderNotes;
+    }
   }
 
   // Returns the current DateTime
